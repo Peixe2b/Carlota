@@ -1,4 +1,4 @@
-import re
+from re import compile
 
 class PhoneNumber(object):
     """
@@ -30,7 +30,7 @@ class PhoneNumberValidator(object):
     # Ela é uma função estátitica, então ela pode ser usada em qualquer lugar do código, sem instância da classe 
     @staticmethod
     def validator(phone: PhoneNumber) -> bool:
-        basic_syntaxe = re.compile(r"[0-9]{4,5}-[0-9]{4}")
+        basic_syntaxe = compile(r"[0-9]{4,5}-[0-9]{4}")
 
         # Retorna falso se o número de telefone for nulo ou vazio
         if phone.get_number() == None or phone.get_number() == "":
@@ -40,7 +40,7 @@ class PhoneNumberValidator(object):
             return True
         return False
 
-    # Essa função formata o número de telefone (com formatação)
+    # Essa função retorna o número de telefone (com formatado)
     @staticmethod
     def format_number(phone: PhoneNumber) -> str:    
         COUNTRY_CODE = "+55"
