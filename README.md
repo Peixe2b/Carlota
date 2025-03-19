@@ -1,4 +1,4 @@
-# Carlota Nogueira de Henrique (CNH)d
+# Carlota Nogueira de Henrique (CNH)
 
 - Apaixonada por engenharia cívil | Amante da natureza
 - Tem uma quedinha por alguem... 
