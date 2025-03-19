@@ -15,3 +15,6 @@ if __name__ == "__main__":
     # Obter caminho do src.message.phone
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src", "message")))
     print(sys.path[-1])
+
+    # Definir o caminho do src.message.phone
+    from src import PhoneNumber, PhoneNumberValidator

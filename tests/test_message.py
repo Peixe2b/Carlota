@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src import Message, PhoneNumber, PhoneNumberValidator
+from src import Message, PhoneNumber, PhoneNumberValidator, create_message
 
 class TestMessage:
     GIRLFRIEND = "Carlota"
@@ -19,13 +19,29 @@ class TestMessage:
         assert first_message.message == "Hello, World!"
     
     def test_basic_message_with_ten_lines(self):
-        assert True
+        message_text = "Hello, World!\n"*10
+        message = create_message(
+            sender=self.GIRLFRIEND,
+            receiver="Me",
+            message=message_text,
+            number=self.MY_PHONE_NUMBER
+        )
+        assert message.message == message_text
 
-    def test_basic_message_with_lot_of_spaces(self):
-        assert True
+    def test_message_receiver_is_null(self):
+        message = create_message(
+            sender=self.GIRLFRIEND,
+            receiver="",
+            message="Hello, World!",
+            number=self.MY_PHONE_NUMBER
+        )
+        assert message == None
 
-    def test_basic_message_with_no_receiver(self):
-        assert True
-    
-    def test_basic_message_with_no_sender(self):
-        assert True
+    def test_basic_message_with_number(self):
+        message = create_message(
+            sender=self.GIRLFRIEND,
+            receiver="Me",
+            message="Hello, World!",
+            number=self.MY_PHONE_NUMBER
+        )
+        assert message.number == "+55 11 123456789"
